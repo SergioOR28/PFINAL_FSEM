@@ -1,0 +1,128 @@
+<!-- Autores:
+-Aguilar Luna Miguel Angel
+-Guzmán Santiago Rubén Vicente
+-Osorio Robles Sergio de Jesús
+License: MIT -->
+<!DOCTYPE html>
+
+<head>
+    <title>PROYECTO FINAL</title>
+    <link rel="stylesheet" href='../static/clr.css' />
+</head>
+
+<body>
+    <h1 align=center>Concentrador básico Smart Home</h1>
+
+    <h2 align=center> Control de iluminación </h2>
+    <h3 align=center> Foco del pasillo
+        {% if FOCO1 == 1 %}
+        <a href="/FOCO1/apagado" class="button">Apagar</a>
+        <br>
+        <br>
+        <img src="https://i.ibb.co/MnZ3mJF/f1.png" />
+
+        {% else %}
+        <a href="/FOCO1/encendido" class="button">Encender</a>
+        <br>
+        <br>
+        <img src="https://i.ibb.co/gmqdQP2/f2.png" />
+        {% endif %}
+    </h3>
+
+    <h3 align=center> Foco de la cocina
+        {% if FOCO2 == 1 %}
+        <a href="/FOCO2/apagado" class="button">Apagar</a>
+        <br>
+        <br>
+        <img src="https://i.ibb.co/MnZ3mJF/f1.png" />
+        {% else %}
+        <a href="/FOCO2/encendido" class="button">Encender</a>
+        <br>
+        <br>
+        <img src="https://i.ibb.co/gmqdQP2/f2.png" />
+        {% endif %}
+    </h3>
+    <h4>
+        <div id="app">
+            <h2>Añadir temporizador para las luces</h2>
+            <div id="current-time"></div>
+            <div class="create-alarm">
+              <div>Establecer hora</div>
+              <div class="form-actions">
+                <form>
+                  <div class="alarm-inputs">
+                    <input
+                      type="number"
+                      name="hour"
+                      placeholder="Horas"
+                      min="0"
+                      max="12"
+                      required
+                    />
+                    <input
+                      type="number"
+                      name="min"
+                      min="0"
+                      max="60"
+                      placeholder="Minutos"
+                      required
+                    />
+                    <input
+                      type="number"
+                      name="sec"
+                      min="0"
+                      max="60"
+                      placeholder="Segundos"
+                      required
+                    />
+                    <select name="zone" required>
+                      <option value="" selected disabled>Zone</option>
+                      <option value="AM">AM</option>
+                      <option value="PM">PM</option>
+                    </select>
+                    <select name="estado" required>
+                        <option value="" selected disabled>ON/OFF</option>
+                        <option value="Encender">Encender</option>
+                        <option value="Apagar">Apagar</option>
+                      </select>
+                  </div>
+                  <button>Añadir</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div id="active-alarm">
+            <div id="alarm-text"></div>
+          </div>
+          <script src="main.js"></script>
+        <h2 align=center> Cámara en vivo
+            <a href="/menu_camara" class="button">Encender cámara</a>
+        </h2>
+
+    </h4>
+    <h2 align=center>Control puerta de la cochera</h2>
+    <h3 align=center> Puerta de la cochera
+        {% if FOCO3 == 1 %}
+        <a href="/FOCO3/apagado" class="button">Abrir</a>
+        <br>
+        <br>
+        <img src="https://i.ibb.co/QcgM6XB/Puerta0.png" />
+        {% else %}
+        <a href="/FOCO3/encendido" class="button">Cerrar</a>
+        <br>
+        <br>
+        <img src="https://i.ibb.co/bmCnr4D/Puerta2.png" />
+        {% endif %}
+    </h3>
+    <h2 align=center> Timbre </h2>
+
+    <h3 align=center> {{ buzzer }}
+        {% if buzzer == 1 %}
+        <a href="/buzzer/apagado" class="button">toca</a>
+        {% else %}
+        <a href="/buzzer/encendido" class="button">Tocar timbre</a>
+        {% endif %}
+    </h3>
+    
+</body>
+</html>
